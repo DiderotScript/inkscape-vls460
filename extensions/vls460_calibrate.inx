@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+	<_name>Laser VLS460 - Calibration</_name>
+	<id>fr.univ-paris-diderot.script.vls460_calibrate</id>
+
+	<dependency type="extension">org.inkscape.output.svg.inkscape</dependency>
+	<dependency type="executable" location="extensions">vls460_calibrate.py</dependency>
+	<dependency type="executable" location="extensions">vls460_gdi.py</dependency>
+	<dependency type="executable" location="extensions">inkex.py</dependency>
+
+	<param name="operation" type="optiongroup" _gui-text="Operation type">
+		<option value="engraving">Engraving</option>
+		<option value="cutting">Cutting</option>
+	</param>
+	<param name="thickness" type="float" _gui-text="Thickness (mm)" min="0" max="100">3</param>
+	<param name="min_power" type="int" _gui-text="Minimum power" min="0" max="100">60</param>
+	<param name="max_power" type="int" _gui-text="Maximum power" min="0" max="100">80</param>
+	<param name="min_speed" type="int" _gui-text="Minimum speed" min="0" max="100">30</param>
+	<param name="max_speed" type="int" _gui-text="Maximum speed" min="0" max="100">100</param>
+	<param name="file" type="string" _gui-text="Save laser configuration to:">~\Desktop\calibration.las</param>
+
+	<effect needs-live-preview="false">
+		<object-type>all</object-type>
+		<effects-menu>
+			<submenu _name="Export"/>
+		</effects-menu>
+	</effect>
+	<script>
+		<command reldir="extensions" interpreter="python">vls460_calibrate.py</command>
+	</script>
+</inkscape-extension>
