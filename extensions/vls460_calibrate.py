@@ -173,7 +173,7 @@ class Vls460Calibrate():
         steps = 8 # number of different colors (including the first color "black")
 
         inch = 25.4 # 1 inch = 25,4 mm
-        zdisp = [int(1000 * thickness / inch) for i in range(0, steps+1)]
+        zdisp = [int(1000 * thickness / inch)] * steps
 
         d_power = (max_power - min_power) / (steps - 1)
         d_speed = (max_speed - min_speed) / (steps - 1)
